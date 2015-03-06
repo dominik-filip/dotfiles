@@ -1,0 +1,91 @@
+# Force tmux to use 256 colors
+alias tmux='tmux -2'
+
+# make it sudo
+if [ "$UID" -ne 0 ] # if not root
+  then
+  alias shutdown='sudo shutdown'
+  alias reboot='sudo reboot'
+fi
+
+# clear & listing aliases
+alias cls='clear && ls'
+alias cll='clear && ls -alF'
+alias l.='ls -d .* --color=auto' # show hidden files
+alias lld='ls -d */' # list directories only
+
+# history channel.ing
+alias h='history'
+alias his=h
+function hs { history | grep $* }
+alias hsi='hs -i'
+
+# cd aliases
+alias cdd='~/Downloads'
+alias cdr='~/Rails'
+alias cdv='~/Videos'
+
+# python shells
+alias py='python'
+alias ipy='ipython'
+
+# django
+alias mn='./manage.py'
+alias mr='./manage.py runserver'
+
+# pacman aliases borrowed™ from archlinux wiki
+alias pacupg='sudo pacman -Syu' # Synchronize with repositories then upgrade
+alias pacin='sudo pacman -S' # Install specific package(s) from the repositories
+alias pacins='sudo pacman -U' # Install specific package not from the repositories
+alias pacre='sudo pacman -R' # Remove the specified package(s), retaining its conf & deps
+alias pacrem='sudo pacman -Rns' # Remove the specified package(s), its conf and deps
+alias pacrep='pacman -Si' # Display info about a given package in the reps
+alias pacreps='pacman -Ss' # Search for package(s) in the reps
+alias paclock='pacman -Qi' # Display info about a given package in the local db
+alias paclocs='pacman -Qs' # Search for package(s) in the local db
+alias paclo='pacman -Qdt' # List all pkgs which are orphaned
+alias pacc='sudo pacman -Scc' # Clean cache - delete all not currently installed pkg files
+alias paclf='pacman -Ql' # List all files installed by a given pkg
+alias pacmir='sudo pacman -Syy' # Force refresh of all pkg lists after updating mirrorlist
+
+# '[r]emove [o]rphans' - recursively remove ALL orphaned pkgs
+alias pacro="pacman -Qtdg > /dev/null && sudo pacman -Rns \$(pacman -Qtdg | sed -e ':a;N;$!ba;s/\n/ /g')"
+
+# ugly workaround for audio output issues with dual head
+alias msc='xrandr --output HDMI1 --off && pulseaudio -k && pulseaudio --start && mpd && xrandr --output HDMI1 --mode 1920x1080 --right-of LVDS1'
+
+# config
+alias xinit='vim ~/.xinitrc'
+alias zshrc='vim ~/.zshrc'
+alias vimrc='vim ~/.vim/vimrc'
+alias bashrc='vim ~/.bashrc'
+alias i3conf='vim ~/.i3/config'
+alias res='vim ~/.Xresources'
+alias rel='xrdb -merge ~/.Xresources' # reload
+alias ali='vim ~/.zsh_aliases'
+
+# redshift
+alias rsx='redshift -x'
+alias rsn='redshift -O 2800'
+alias rso='redshift -O'
+
+# finding
+alias fd='find . -type d -name'
+alias ff='find . -type f -name'
+
+# globals
+alias -g G='| grep'
+
+# pivot
+alias rleft='xrandr --output HDMI1 --rotate left'
+alias rnormal='xrandr --output HDMI1 --rotate normal'
+
+# workaround for zsh HISTIGNORE
+alias exit=' exit'
+alias fg=' fg'
+
+# test
+alias fm='vifm'
+alias gt="git log --graph G -e Date"
+
+# + many more from .oh-my-zsh
