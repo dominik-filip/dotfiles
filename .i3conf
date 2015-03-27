@@ -28,7 +28,7 @@ bindsym $mod+i exec feh --randomize --bg-scale ~/Wallpapers/*
 
 # Pulse Audio Controls
 bindsym XF86AudioRaiseVolume exec pactl set-sink-volume 0 +3% && killall -USR1 i3status
-bindsym XF86AudioLowerVolume exec pactl set-sink-volume 0 -- -3% && killall -USR1 i3status
+bindsym XF86AudioLowerVolume exec pactl set-sink-volume 0 -3% && killall -USR1 i3status
 bindsym XF86AudioMute exec pactl set-sink-mute 0 toggle
 
 # Touchpad Controls

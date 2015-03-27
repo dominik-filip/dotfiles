@@ -57,7 +57,7 @@ alias msc='xrandr --output HDMI1 --off && pulseaudio -k && pulseaudio --start &&
 # config
 alias xinit='vim ~/.xinitrc'
 alias zshrc='vim ~/.zshrc'
-alias vimrc='vim ~/.vim/vimrc'
+alias vimrc='vim ~/.vimrc'
 alias bashrc='vim ~/.bashrc'
 alias i3conf='vim ~/.i3/config'
 alias res='vim ~/.Xresources'
@@ -87,5 +87,6 @@ alias fg=' fg'
 # test
 alias fm='vifm'
 alias gt="git log --graph G -e Date"
+alias gstu="git status --untracked-files=no"
 
 # + many more from .oh-my-zsh

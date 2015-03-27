@@ -1,4 +1,4 @@
-" Leader
+" leader
 let mapleader=","
 let g:mapleader=","
 
@@ -9,86 +9,84 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 
-" themes & looks
+" theme
 Plugin 'nanotech/jellybeans.vim'
 Plugin 'bling/vim-airline'
-if !exists('g:airline_symbols')
-  let g:airline_symbols={}
-endif
+  if !exists('g:airline_symbols')
+    let g:airline_symbols={}
+  endif
 
-let g:airline#extensions#tabline#enabled=1
-let g:airline#extensions#tabline#left_sep=' '
-let g:airline#extensions#tabline#left_alt_sep='|'
-let g:airline_left_sep=''
-let g:airline_right_sep=''
-let g:airline#extensions#whitespace#enabled=0
-let g:airline_symbols.linenr=''
+  let g:airline#extensions#tabline#enabled=1
+  let g:airline#extensions#tabline#left_sep=' '
+  let g:airline#extensions#tabline#left_alt_sep='|'
+  let g:airline_left_sep=''
+  let g:airline_right_sep=''
+  let g:airline#extensions#whitespace#enabled=0
+  let g:airline_symbols.linenr=''
 
-" core
-Plugin 'tpope/vim-surround'
+" navigation
 Plugin 'tpope/vim-vinegar'
-Plugin 'jiangmiao/auto-pairs'
 Plugin 'justinmk/vim-sneak'
-let g:sneak#streak=1
+  let g:sneak#streak=1
 Plugin 'kien/ctrlp.vim'
-let g:ctrlp_clear_cache_on_exit=1
-let g:ctrlp_max_height=40
-let g:ctrlp_max_files=20000
-let g:ctrlp_cache_dir='~/.vim/.cache/ctrlp'
-let g:ctrlp_reuse_window='startify'
-let g:ctrlp_extensions=['tag']
-let g:ctrlp_custom_ignore={
-      \ 'dir': '\v[\/]\.(git|hg)$|vendor/|tmp/',
-      \ 'file': '\v\.DS_Store$',
-      \ }
-let g:ctrlp_map='<c-p>'
-let g:ctrlp_cmd='CtrlP'
-let g:ctrlp_working_path_mode='ra'
+  let g:ctrlp_clear_cache_on_exit=1
+  let g:ctrlp_max_height=40
+  let g:ctrlp_max_files=10000
+  let g:ctrlp_cache_dir='~/.vim/.cache/ctrlp'
+  let g:ctrlp_reuse_window='startify'
+  let g:ctrlp_extensions=['tag']
+  let g:ctrlp_custom_ignore={
+        \ 'dir': '\v[\/]\.(git|hg)$|vendor/|tmp/',
+        \ 'file': '\v\.DS_Store$',
+        \ }
+  let g:ctrlp_map='<c-p>'
+  let g:ctrlp_cmd='CtrlP'
+  let g:ctrlp_working_path_mode='ra'
 
 " complete
 Plugin 'Valloric/YouCompleteMe'
-let g:ycm_complete_in_comments_and_strings=1
-let g:ycm_key_list_select_completion=['<C-n>']
-let g:ycm_key_list_previous_completion=['<C-p']
-let g:ycm_filetype_blacklist={'unite': 1}
+  let g:ycm_complete_in_comments_and_strings=1
+  let g:ycm_key_list_select_completion=['<C-n>']
+  let g:ycm_key_list_previous_completion=['<C-p']
+  let g:ycm_filetype_blacklist={'unite': 1, 'markdown' : 1}
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<tab>"
-let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
-let g:UltiSnipsSnippetsDir='~/.vim/snippets'
+  let g:UltiSnipsExpandTrigger="<tab>"
+  let g:UltiSnipsJumpForwardTrigger="<tab>"
+  let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
+  let g:UltiSnipsSnippetsDir='~/.vim/snippets'
 
 " edit
-Plugin 'godlygeek/tabular'
-Plugin 'mhinz/vim-startify'
-let g:startify_session_dir='~/.vim/.cache/sessions'
-let g:startify_show_sessions=1
-let g:startify_change_to_vcs_root=1
-nnoremap <F1> :Startify<CR>
-
-" language
-Plugin 'scrooloose/syntastic'
-let g:syntastic_error_symbol='✗'
-let g:syntastic_style_error_symbol='✠'
-let g:syntastic_warning_symbol='∆'
-let g:syntastic_style_warning_symbol='≈'
+Plugin 'tpope/vim-surround'
+Plugin 'jiangmiao/auto-pairs'
 Plugin 'tpope/vim-endwise'
 Plugin 'tomtom/tcomment_vim'
+Plugin 'godlygeek/tabular'
+Plugin 'mhinz/vim-startify'
+  nnoremap <F1> :Startify<CR>
+  map <leader>s :SSave<cr>
+  let g:startify_session_dir='~/.vim/.cache/sessions'
+  let g:startify_show_sessions=1
+  let g:startify_change_to_vcs_root=1
+Plugin 'scrooloose/syntastic'
+  let g:syntastic_error_symbol='✗'
+  let g:syntastic_style_error_symbol='✠'
+  let g:syntastic_warning_symbol='∆'
+  let g:syntastic_style_warning_symbol='≈'
 
 " Ruby/Rails test
 Plugin 'tpope/vim-rails'
-map <leader>m :Rmodel 
-map <leader>v :Rview 
-map <leader>c :Rcontroller 
-map <leader>r :R
+  map <leader>m :Rmodel 
+  map <leader>v :Rview 
+  map <leader>c :Rcontroller 
+  map <leader>r :R
 
 " test
-Plugin 'tpope/vim-eunuch'
 Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-fugitive'
 Plugin 'mhinz/vim-signify'
 Plugin 'michaeljsmith/vim-indent-object'
-
+Plugin 'KabbAmine/zeavim.vim'
 
 call vundle#end()
 filetype plugin indent on
@@ -98,7 +96,7 @@ colorscheme jellybeans
 " mouse, format
 set mouse=a
 set mousehide
-set history=1000
+set history=500
 set ttyfast
 set encoding=utf-8
 set hidden
@@ -108,7 +106,7 @@ set nrformats-=octal
 set showcmd
 set noshelltemp
 
-" whitespace, indentation, prettify
+" whitespace, indentation
 set backspace=indent,eol,start
 set autoindent
 set expandtab
@@ -135,7 +133,7 @@ set wildignorecase
 set splitbelow
 set splitright
 
-" error, bell, sound
+" error, bell
 set noerrorbells
 set novisualbell
 set t_vb=
@@ -160,13 +158,10 @@ set cursorline
 set noswapfile
 autocmd WinLeave * setlocal nocursorline
 autocmd WinEnter * setlocal cursorline
-let &colorcolumn=120
+let &colorcolumn=80
 
 set timeoutlen=300
-set ttimeoutlen=50
-
-
-" mappings
+set ttimeoutlen=20
 
 " basics
 nnoremap <leader>w :w<cr>
@@ -209,8 +204,6 @@ nnoremap <silent> # #zz
 nnoremap <silent> g* g*zz
 nnoremap <silent> g# g#zz
 
-" windows
-
 " reselect visual block after indent
 vnoremap < <gv
 vnoremap > >gv
@@ -224,7 +217,7 @@ nnoremap<S-l> gt
 " Y consistent with C and D
 nnoremap Y y$
 
-" general
+" highlight
 nnoremap <BS> :set hlsearch! hlsearch?<CR>
 
 " blasphemy
@@ -238,11 +231,16 @@ nnoremap gV `[v`]
 nnoremap _ ^
 
 " Wordwise Ctrl-Y in insert mode
-" noremap! <C-Y> <Esc>klyWjPa
 inoremap <expr> <c-y> matchstr(getline(line('.')-1), '\%' . virtcol('.') . 'v\%(\k\+\\|.\)')
 
-" test
+" disable useless default
 nnoremap K <nop>
 
-" test save session
-map <leader>s :SSave<cr>
+" SudoWrite
+cmap w!! %!sudo tee > /dev/null %
+
+" Ctags
+nnoremap <F4> :!ctags -R --exclude=.git --exclude=log *<CR>
+
+" execute current ruby file
+nmap <leader>E :!ruby %<cr>
