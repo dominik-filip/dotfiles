@@ -214,6 +214,9 @@ map <leader>tc :tabclose<CR>
 nnoremap<S-h> gT
 nnoremap<S-l> gt
 
+" windows
+nnoremap <leader>h :split<CR>
+
 " Y consistent with C and D
 nnoremap Y y$
 
@@ -244,3 +247,6 @@ nnoremap <F4> :!ctags -R --exclude=.git --exclude=log *<CR>
 
 " execute current ruby file
 nmap <leader>E :!ruby %<cr>
+
+" accuracy adjustment
+cnoreabbrev W w

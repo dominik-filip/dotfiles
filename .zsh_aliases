@@ -12,7 +12,7 @@ fi
 alias cls='clear && ls'
 alias cll='clear && ls -alF'
 alias l.='ls -d .* --color=auto' # show hidden files
-alias lld='ls -d */' # list directories only
+alias lsd='ls -d */' # list directories only
 
 # history channel.ing
 alias h='history'
@@ -23,7 +23,6 @@ alias hsi='hs -i'
 # cd aliases
 alias cdd='~/Downloads'
 alias cdr='~/Rails'
-alias cdv='~/Videos'
 
 # python shells
 alias py='python'
@@ -51,15 +50,12 @@ alias pacmir='sudo pacman -Syy' # Force refresh of all pkg lists after updating 
 # '[r]emove [o]rphans' - recursively remove ALL orphaned pkgs
 alias pacro="pacman -Qtdg > /dev/null && sudo pacman -Rns \$(pacman -Qtdg | sed -e ':a;N;$!ba;s/\n/ /g')"
 
-# ugly workaround for audio output issues with dual head
-alias msc='xrandr --output HDMI1 --off && pulseaudio -k && pulseaudio --start && mpd && xrandr --output HDMI1 --mode 1920x1080 --right-of LVDS1'
-
 # config
 alias xinit='vim ~/.xinitrc'
 alias zshrc='vim ~/.zshrc'
 alias vimrc='vim ~/.vimrc'
 alias bashrc='vim ~/.bashrc'
-alias i3conf='vim ~/.i3/config'
+alias i3conf='vim ~/.i3conf'
 alias res='vim ~/.Xresources'
 alias rel='xrdb -merge ~/.Xresources' # reload
 alias ali='vim ~/.zsh_aliases'
@@ -75,14 +71,6 @@ alias ff='find . -type f -name'
 
 # globals
 alias -g G='| grep'
-
-# pivot
-alias rleft='xrandr --output HDMI1 --rotate left'
-alias rnormal='xrandr --output HDMI1 --rotate normal'
-
-# workaround for zsh HISTIGNORE
-alias exit=' exit'
-alias fg=' fg'
 
 # test
 alias fm='vifm'
