@@ -87,6 +87,12 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'mhinz/vim-signify'
 Plugin 'michaeljsmith/vim-indent-object'
 Plugin 'KabbAmine/zeavim.vim'
+Plugin 'kchmck/vim-coffee-script'
+  map <leader>cc :CoffeeCompile<cr>
+  vmap <leader>cc <esc>:CofeeCompile<cr>
+  map <leader>cw :CoffeeWatch<cr>
+  map <leader>cr :CoffeeRun<cr>
+  let g:coffee_compile_vert = 1
 
 call vundle#end()
 filetype plugin indent on
