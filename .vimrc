@@ -93,6 +93,7 @@ Plugin 'kchmck/vim-coffee-script'
   map <leader>cw :CoffeeWatch<cr>
   map <leader>cr :CoffeeRun<cr>
   let g:coffee_compile_vert = 1
+  let g:coffee_watch_vert = 1
 
 call vundle#end()
 filetype plugin indent on

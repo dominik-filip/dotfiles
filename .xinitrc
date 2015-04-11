@@ -1,8 +1,4 @@
-#!/bin/sh
-#
-# ~/.xinitrc
-#
-# Executed by startx (run your window manager from here)
+# Executed by startx
 
 if [ -d /etc/X11/xinit/xinitrc.d ]; then
   for f in /etc/X11/xinit/xinitrc.d/*; do
@@ -14,16 +10,17 @@ fi
 # start urxvt daemon
 urxvtd -q -f -o
 
-# Load Xresources
+# load Xresources
 [[ -f ~/.Xresources ]] && xrdb -merge ~/.Xresources
 
-# Start pulseaudio
+# start pulseaudio
 /usr/bin/start-pulseaudio-x11
 
-# MPD daemon start (if no other instance exists)
-[ ! -s ~/.config/mpd/pid ] && mpd
+# MPD daemon start
+mpd
 
-# Set wallpapers
+# set wallpapers
 sh ~/.fehbg &
 
+# start window manager
 exec i3
