@@ -172,6 +172,7 @@ set ttimeoutlen=20
 
 " basics
 nnoremap <leader>w :w<cr>
+nnoremap <leader><leader> :w<cr>
 nnoremap <leader><Esc> :q!<CR>
 nnoremap <leader><leader><Esc> :wqa!<CR>
 
