@@ -176,6 +176,9 @@ nnoremap <leader><leader> :w<cr>
 nnoremap <leader><Esc> :q!<CR>
 nnoremap <leader><leader><Esc> :wqa!<CR>
 
+" SudoWrite
+nnoremap <leader>sw :w !sudo tee > /dev/null %<cr>
+
 " buffers
 noremap <tab> :bn<CR>
 noremap <S-tab> :bp<CR>
@@ -246,9 +249,6 @@ inoremap <expr> <c-y> matchstr(getline(line('.')-1), '\%' . virtcol('.') . 'v\%(
 
 " disable useless default
 nnoremap K <nop>
-
-" SudoWrite
-cmap w!! %!sudo tee > /dev/null %
 
 " Ctags
 nnoremap <F4> :!ctags -R --exclude=.git --exclude=log *<CR>
