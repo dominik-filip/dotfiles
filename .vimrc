@@ -94,6 +94,9 @@ Plugin 'kchmck/vim-coffee-script'
   map <leader>cr :CoffeeRun<cr>
   let g:coffee_compile_vert = 1
   let g:coffee_watch_vert = 1
+Plugin 'othree/javascript-libraries-syntax.vim'
+  let g:used_javascript_libs = 'underscore,backbone,jquery'
+Plugin 'othree/html5.vim'
 
 call vundle#end()
 filetype plugin indent on

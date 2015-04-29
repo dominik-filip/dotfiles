@@ -1,20 +1,20 @@
 # Force tmux to use 256 colors
 alias tmux='tmux -2'
 
-# make it sudo
+# sudo
 if [ "$UID" -ne 0 ] # if not root
   then
   alias shutdown='sudo shutdown'
   alias reboot='sudo reboot'
 fi
 
-# clear & listing aliases
+# listing
 alias cls='clear && ls'
 alias cll='clear && ls -alF'
 alias l.='ls -d .* --color=auto' # show hidden files
 alias lsd='ls -d */' # list directories only
 
-# history channel.ing
+# history
 alias h='history'
 alias his=h
 function hs { history | grep $* }
@@ -65,16 +65,34 @@ alias rsx='redshift -x'
 alias rsn='redshift -O 2800'
 alias rso='redshift -O'
 
-# finding
-alias fd='find . -type d -name'
-alias ff='find . -type f -name'
-
 # globals
 alias -g G='| grep'
 
-# test
-alias fm='vifm'
-alias gt="git log --graph G -e Date"
-alias gstu="git status --untracked-files=no"
+# git
+alias gst='git status'
+alias gd='git diff'
+alias gcmsg='git commit -m'
+alias gcm='git checkout master'
+alias gb='git branch'
+alias glog='git log --oneline --decorate --color --graph'
+alias ga='git add'
+alias gm='git merge'
+alias gr='git remote'
+alias gp='git push'
+alias gl='git pull'
 
-# + many more from .oh-my-zsh
+# rails
+alias rc='rails console'
+alias rd='rails destroy'
+alias rg='rails generate'
+alias rgm='rails generate migration'
+alias rs='rails server'
+
+# rake
+alias rdm='rake db:migrate'
+alias rdr='rake db:rollback'
+alias rdc='rake db:create'
+alias rds='rake db:seed'
+alias rdd='rake db:drop'
+alias rr='rake routes'
+alias rt='rake test'
