@@ -73,6 +73,8 @@ Plugin 'scrooloose/syntastic'
   let g:syntastic_style_error_symbol='✠'
   let g:syntastic_warning_symbol='∆'
   let g:syntastic_style_warning_symbol='≈'
+Plugin 'michaeljsmith/vim-indent-object'
+Plugin 'mhinz/vim-signify'
 
 " Ruby/Rails test
 Plugin 'tpope/vim-rails'
@@ -81,12 +83,13 @@ Plugin 'tpope/vim-rails'
   map <leader>c :Rcontroller 
   map <leader>r :R
 
+" misc
+Plugin 'KabbAmine/zeavim.vim'
+Plugin 'othree/html5.vim'
+
 " test
 Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-fugitive'
-Plugin 'mhinz/vim-signify'
-Plugin 'michaeljsmith/vim-indent-object'
-Plugin 'KabbAmine/zeavim.vim'
 Plugin 'kchmck/vim-coffee-script'
   map <leader>cc :CoffeeCompile<cr>
   vmap <leader>cc <esc>:CofeeCompile<cr>
@@ -96,7 +99,6 @@ Plugin 'kchmck/vim-coffee-script'
   let g:coffee_watch_vert = 1
 Plugin 'othree/javascript-libraries-syntax.vim'
   let g:used_javascript_libs = 'underscore,backbone,jquery'
-Plugin 'othree/html5.vim'
 
 call vundle#end()
 filetype plugin indent on

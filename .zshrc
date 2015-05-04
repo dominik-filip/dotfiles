@@ -15,6 +15,7 @@ unsetopt CORRECT
 
 source ~/.zsh_aliases
 export EDITOR=vim
+export PATH="$(ruby -rubygems -e 'puts Gem.user_dir')/bin:$PATH"
 
 # Switch back and forth between two jobs
 fancy-ctrl-z () {
