@@ -96,3 +96,7 @@ alias rds='rake db:seed'
 alias rdd='rake db:drop'
 alias rr='rake routes'
 alias rt='rake test'
+
+# bundler
+alias be="bundle exec"
+alias bl="bundle list"
