@@ -22,5 +22,8 @@ mpd
 # set wallpapers
 sh ~/.fehbg &
 
+# disable touchpad
+sh ~/bin/disable_touchpad.sh
+
 # start window manager
 exec i3
