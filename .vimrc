@@ -42,6 +42,11 @@ Plugin 'kien/ctrlp.vim'
   let g:ctrlp_map='<c-p>'
   let g:ctrlp_cmd='CtrlP'
   let g:ctrlp_working_path_mode='ra'
+  let g:ctrlp_prompt_mappings = {
+        \ 'AcceptSelection("h")': ['<c-h>'],
+        \ 'PrtCurLeft()':         ['<c-x>'],
+        \ }
+  let g:ctrlp_open_new_file = 't'
 
 " complete
 Plugin 'Valloric/YouCompleteMe'
@@ -75,6 +80,8 @@ Plugin 'scrooloose/syntastic'
   let g:syntastic_style_warning_symbol='≈'
 Plugin 'michaeljsmith/vim-indent-object'
 Plugin 'mhinz/vim-signify'
+  nmap <leader>hn <plug>(signify-next-hunk)
+  nmap <leader>hp <plug>(signify-prev-hunk)
 
 " Ruby/Rails test
 Plugin 'tpope/vim-rails'
@@ -256,10 +263,7 @@ inoremap <expr> <c-y> matchstr(getline(line('.')-1), '\%' . virtcol('.') . 'v\%(
 nnoremap K <nop>
 
 " Ctags
-nnoremap <F4> :!ctags -R --exclude=.git --exclude=log *<CR>
-
-" execute current ruby file
-nmap <leader>E :!ruby %<cr>
+nnoremap <F3> :!ctags -R --exclude=.git --exclude=log *<CR>
 
 " accuracy adjustment
 cnoreabbrev W w
