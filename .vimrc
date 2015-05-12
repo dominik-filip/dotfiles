@@ -11,6 +11,7 @@ Plugin 'gmarik/Vundle.vim'
 
 " theme
 Plugin 'nanotech/jellybeans.vim'
+Plugin 'jnurmine/Zenburn'
 Plugin 'bling/vim-airline'
   if !exists('g:airline_symbols')
     let g:airline_symbols={}
@@ -55,11 +56,12 @@ Plugin 'Valloric/YouCompleteMe'
   let g:ycm_key_list_previous_completion=['<C-p']
   let g:ycm_filetype_blacklist={'unite': 1, 'markdown' : 1}
 Plugin 'SirVer/ultisnips'
-Plugin 'honza/vim-snippets'
   let g:UltiSnipsExpandTrigger="<tab>"
   let g:UltiSnipsJumpForwardTrigger="<tab>"
   let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
-  let g:UltiSnipsSnippetsDir='~/.vim/snippets'
+  let g:UltiSnipsEditSplit="horizontal"
+  nmap <leader>u :UltiSnipsEdit<cr>
+Plugin 'honza/vim-snippets'
 
 " edit
 Plugin 'tpope/vim-surround'
@@ -105,7 +107,7 @@ Plugin 'kchmck/vim-coffee-script'
   let g:coffee_compile_vert = 1
   let g:coffee_watch_vert = 1
 Plugin 'othree/javascript-libraries-syntax.vim'
-  let g:used_javascript_libs = 'underscore,backbone,jquery'
+  let g:used_javascript_libs = 'underscore,backbone,jquery,handlebars'
 
 call vundle#end()
 filetype plugin indent on
