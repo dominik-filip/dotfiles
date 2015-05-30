@@ -30,7 +30,7 @@ Plugin 'tpope/vim-vinegar'
 Plugin 'justinmk/vim-sneak'
   let g:sneak#streak=1
 Plugin 'kien/ctrlp.vim'
-  let g:ctrlp_clear_cache_on_exit=1
+  let g:ctrlp_clear_cache_on_exit=0
   let g:ctrlp_max_height=40
   let g:ctrlp_max_files=10000
   let g:ctrlp_cache_dir='~/.vim/.cache/ctrlp'
@@ -85,7 +85,7 @@ Plugin 'mhinz/vim-signify'
   nmap <leader>hn <plug>(signify-next-hunk)
   nmap <leader>hp <plug>(signify-prev-hunk)
 
-" Ruby/Rails test
+" Ruby/Rails
 Plugin 'tpope/vim-rails'
   map <leader>m :Rmodel 
   map <leader>v :Rview 
@@ -108,6 +108,8 @@ Plugin 'kchmck/vim-coffee-script'
   let g:coffee_watch_vert = 1
 Plugin 'othree/javascript-libraries-syntax.vim'
   let g:used_javascript_libs = 'underscore,backbone,jquery,handlebars'
+Plugin 'vim-scripts/closetag.vim'
+Plugin 'tpope/vim-haml'
 
 call vundle#end()
 filetype plugin indent on
@@ -184,6 +186,8 @@ let &colorcolumn=80
 set timeoutlen=300
 set ttimeoutlen=20
 
+set clipboard=unnamedplus
+
 " basics
 nnoremap <leader>w :w<cr>
 nnoremap <leader><leader> :w<cr>
@@ -257,6 +261,7 @@ nnoremap gV `[v`]
 
 " dvorak
 nnoremap _ ^
+nnoremap <c-k> "+p
 
 " Wordwise Ctrl-Y in insert mode
 inoremap <expr> <c-y> matchstr(getline(line('.')-1), '\%' . virtcol('.') . 'v\%(\k\+\\|.\)')
@@ -265,7 +270,7 @@ inoremap <expr> <c-y> matchstr(getline(line('.')-1), '\%' . virtcol('.') . 'v\%(
 nnoremap K <nop>
 
 " Ctags
-nnoremap <F3> :!ctags -R --exclude=.git --exclude=log *<CR>
+nnoremap <F3> :!ctags -R --exclude=.git --exclude=log --exclude=vendor *<CR>
 
 " accuracy adjustment
 cnoreabbrev W w

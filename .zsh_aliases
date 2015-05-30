@@ -17,7 +17,7 @@ alias lsd='ls -d */' # list directories only
 # history
 alias h='history'
 alias his=h
-function hs { history | grep $* }
+function hs { fc -l -$HISTSIZE | grep $* }
 alias hsi='hs -i'
 
 # cd aliases
@@ -80,6 +80,8 @@ alias gm='git merge'
 alias gr='git remote'
 alias gp='git push'
 alias gl='git pull'
+alias gf='git fetch'
+alias gfst='gf && gst'
 
 # rails
 alias rc='rails console'
