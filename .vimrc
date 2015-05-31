@@ -13,13 +13,8 @@ Plugin 'gmarik/Vundle.vim'
 Plugin 'nanotech/jellybeans.vim'
 Plugin 'jnurmine/Zenburn'
 Plugin 'bling/vim-airline'
-  if !exists('g:airline_symbols')
-    let g:airline_symbols={}
-  endif
-
+  let g:airline_symbols={}
   let g:airline#extensions#tabline#enabled=1
-  let g:airline#extensions#tabline#left_sep=' '
-  let g:airline#extensions#tabline#left_alt_sep='|'
   let g:airline_left_sep=''
   let g:airline_right_sep=''
   let g:airline#extensions#whitespace#enabled=0
@@ -29,13 +24,13 @@ Plugin 'bling/vim-airline'
 Plugin 'tpope/vim-vinegar'
 Plugin 'justinmk/vim-sneak'
   let g:sneak#streak=1
-Plugin 'kien/ctrlp.vim'
+Plugin 'ctrlpvim/ctrlp.vim'
   let g:ctrlp_clear_cache_on_exit=0
   let g:ctrlp_max_height=40
   let g:ctrlp_max_files=10000
   let g:ctrlp_cache_dir='~/.vim/.cache/ctrlp'
   let g:ctrlp_reuse_window='startify'
-  let g:ctrlp_extensions=['tag']
+  let g:ctrlp_extensions=['tag', 'line']
   let g:ctrlp_custom_ignore={
         \ 'dir': '\v[\/]\.(git|hg)$|vendor/|tmp/',
         \ 'file': '\v\.DS_Store$',
@@ -48,12 +43,15 @@ Plugin 'kien/ctrlp.vim'
         \ 'PrtCurLeft()':         ['<c-x>'],
         \ }
   let g:ctrlp_open_new_file = 't'
+  nnoremap <silent> <leader>p :CtrlP<cr>
+  nnoremap <silent> <leader>t :CtrlPTag<cr>
+  nnoremap <silent> <leader>l :CtrlPLine<cr>
 
 " complete
 Plugin 'Valloric/YouCompleteMe'
   let g:ycm_complete_in_comments_and_strings=1
-  let g:ycm_key_list_select_completion=['<C-n>']
-  let g:ycm_key_list_previous_completion=['<C-p']
+  let g:ycm_key_list_select_completion=['<c-n>']
+  let g:ycm_key_list_previous_completion=['<c-p']
   let g:ycm_filetype_blacklist={'unite': 1, 'markdown' : 1}
 Plugin 'SirVer/ultisnips'
   let g:UltiSnipsExpandTrigger="<tab>"
@@ -70,7 +68,7 @@ Plugin 'tpope/vim-endwise'
 Plugin 'tomtom/tcomment_vim'
 Plugin 'godlygeek/tabular'
 Plugin 'mhinz/vim-startify'
-  nnoremap <F1> :Startify<CR>
+  nnoremap <F1> :Startify<cr>
   map <leader>s :SSave<cr>
   let g:startify_session_dir='~/.vim/.cache/sessions'
   let g:startify_show_sessions=1
@@ -81,35 +79,40 @@ Plugin 'scrooloose/syntastic'
   let g:syntastic_warning_symbol='∆'
   let g:syntastic_style_warning_symbol='≈'
 Plugin 'michaeljsmith/vim-indent-object'
-Plugin 'mhinz/vim-signify'
-  nmap <leader>hn <plug>(signify-next-hunk)
-  nmap <leader>hp <plug>(signify-prev-hunk)
+Plugin 'airblade/vim-gitgutter'
+  let g:gitgutter_realtime = 0
+  let g:gitgutter_eager = 0
+  nmap <leader>hn <plug>GitGutterNextHunk
+  nmap <leader>hp <plug>GitGutterPrevHunk
+  nmap <leader>hv <plug>GitGutterPreviewHunk
+  nmap <leader>hs <plug>GitGutterStageHunk
+  nmap <leader>hu <plug>GitGutterRevertHunk
 
 " Ruby/Rails
 Plugin 'tpope/vim-rails'
   map <leader>m :Rmodel 
   map <leader>v :Rview 
   map <leader>c :Rcontroller 
-  map <leader>r :R
+  map <leader>r :Rmigration
 
 " misc
 Plugin 'KabbAmine/zeavim.vim'
 Plugin 'othree/html5.vim'
-
-" test
-Plugin 'tpope/vim-repeat'
-Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-haml'
 Plugin 'kchmck/vim-coffee-script'
   map <leader>cc :CoffeeCompile<cr>
-  vmap <leader>cc <esc>:CofeeCompile<cr>
+  vmap <leader>cc :CoffeeCompile<cr>
   map <leader>cw :CoffeeWatch<cr>
   map <leader>cr :CoffeeRun<cr>
   let g:coffee_compile_vert = 1
   let g:coffee_watch_vert = 1
 Plugin 'othree/javascript-libraries-syntax.vim'
   let g:used_javascript_libs = 'underscore,backbone,jquery,handlebars'
+
+" test
+Plugin 'tpope/vim-repeat'
+Plugin 'tpope/vim-fugitive'
 Plugin 'vim-scripts/closetag.vim'
-Plugin 'tpope/vim-haml'
 
 call vundle#end()
 filetype plugin indent on
@@ -191,23 +194,15 @@ set clipboard=unnamedplus
 " basics
 nnoremap <leader>w :w<cr>
 nnoremap <leader><leader> :w<cr>
-nnoremap <leader><Esc> :q!<CR>
-nnoremap <leader><leader><Esc> :wqa!<CR>
+nnoremap <leader><esc> :q!<cr>
+nnoremap <leader><leader><esc> :wqa!<cr>
 
 " SudoWrite
 nnoremap <leader>sw :w !sudo tee > /dev/null %<cr>
 
 " buffers
-noremap <tab> :bn<CR>
-noremap <S-tab> :bp<CR>
-nmap <leader>d :bd<CR>
-nmap <leader>D :bufdo bd<CR>
-
-" arrow keys
-nnoremap <left> :bprev<CR>
-nnoremap <right> :bnext<CR>
-nnoremap <up> :tabnext<CR>
-nnoremap <down> :tabprev<CR>
+noremap <tab> :bn<cr>
+noremap <s-tab> :bp<cr>
 
 " sane regex
 nnoremap / /\v
@@ -238,39 +233,41 @@ vnoremap < <gv
 vnoremap > >gv
 
 " tabs
-map <leader>tn :tabnew<CR>
-map <leader>tc :tabclose<CR>
-nnoremap<S-h> gT
-nnoremap<S-l> gt
+map <leader>tn :tabnew<cr>
+map <leader>tc :tabclose<cr>
+map <leader>to :tabonly<cr>
+nnoremap<s-h> gT
+nnoremap<s-l> gt
 
 " windows
-nnoremap <leader>h :split<CR>
+nnoremap <leader>wh :split<cr>
+nnoremap <leader>wv :vsplit<cr>
+nnoremap <leader>wo <c-w><c-o>
+nnoremap <leader>wt <c-w>T
+nnoremap <leader>ww <c-w>w
+nnoremap <c-k> <c-w>k
+nnoremap <c-j> <c-w>j
+nnoremap <c-h> <c-w>h
+nnoremap <c-l> <c-w>l
 
 " Y consistent with C and D
 nnoremap Y y$
 
 " highlight
-nnoremap <BS> :set hlsearch! hlsearch?<CR>
+nnoremap <bs> :set hlsearch! hlsearch?<cr>
 
 " blasphemy
-inoremap <C-a> <Esc>I
-inoremap <C-e> <Esc>A
+inoremap <c-a> <esc>I
+inoremap <c-e> <esc>A
 
-" visual steroids
-nnoremap gV `[v`]
-
-" dvorak
-nnoremap _ ^
-nnoremap <c-k> "+p
-
-" Wordwise Ctrl-Y in insert mode
+" wordwise Ctrl-Y in insert mode
 inoremap <expr> <c-y> matchstr(getline(line('.')-1), '\%' . virtcol('.') . 'v\%(\k\+\\|.\)')
 
 " disable useless default
 nnoremap K <nop>
 
 " Ctags
-nnoremap <F3> :!ctags -R --exclude=.git --exclude=log --exclude=vendor *<CR>
+nnoremap <F3> :!ctags -R --exclude=.git --exclude=log --exclude=vendor *<cr>
 
 " accuracy adjustment
 cnoreabbrev W w
