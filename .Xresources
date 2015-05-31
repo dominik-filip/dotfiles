@@ -1,20 +1,23 @@
 ! terminal colors ----------------------------------
 
 ! tangoesque scheme
-*background: #111111
-*foreground: #dcdccc
-! Black (not tango) + DarkGrey
-*color0: #000000
-*color8: #555753
+URxvt*background: #111111
+URxvt*foreground: #dcdccc
+! Black + DarkGrey
+URxvt*color0: #000000
+URxvt*color8: #555753
 ! DarkRed + Red
-*color1: #ff6565
-*color9: #ff8d8d
+URxvt*color1: #ff6565
+URxvt*color9: #ff8d8d
 ! DarkGreen + Green
-*color2: #93d44f
-*color10: #c8e7a8
+URxvt*color2: #93d44f
+URxvt*color10: #c8e7a8
 ! LightGrey + White
-*color7: #cccccc
-*color15: #ffffff
+URxvt*color7: #cccccc
+URxvt*color15: #ffffff
+! underlines
+URxvt*colorUL: #5B70D2
+URxvt*underlineColor: #5B70D2
 
 ! fonts.conf recommendations
 Xft.dpi: 96
