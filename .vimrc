@@ -50,7 +50,8 @@ Plugin 'ctrlpvim/ctrlp.vim'
 " complete
 Plugin 'Valloric/YouCompleteMe'
   let g:ycm_complete_in_comments_and_strings=1
-  let g:ycm_key_invoke_completion = '<c-b>'
+  let g:ycm_key_list_select_completion=[]
+  let g:ycm_key_list_previous_completion=[]
 Plugin 'SirVer/ultisnips'
   let g:UltiSnipsExpandTrigger="<tab>"
   let g:UltiSnipsJumpForwardTrigger="<tab>"
