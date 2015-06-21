@@ -50,9 +50,7 @@ Plugin 'ctrlpvim/ctrlp.vim'
 " complete
 Plugin 'Valloric/YouCompleteMe'
   let g:ycm_complete_in_comments_and_strings=1
-  let g:ycm_key_list_select_completion=['<c-n>']
-  let g:ycm_key_list_previous_completion=['<c-p']
-  let g:ycm_filetype_blacklist={'unite': 1, 'markdown' : 1}
+  let g:ycm_key_invoke_completion = '<c-b>'
 Plugin 'SirVer/ultisnips'
   let g:UltiSnipsExpandTrigger="<tab>"
   let g:UltiSnipsJumpForwardTrigger="<tab>"
@@ -194,8 +192,29 @@ set clipboard=unnamedplus
 " basics
 nnoremap <leader>w :w<cr>
 nnoremap <leader><leader> :w<cr>
-nnoremap <leader><esc> :q!<cr>
-nnoremap <leader><leader><esc> :wqa!<cr>
+nnoremap <leader><space> :q!<cr>
+nnoremap <leader><leader><space> :wqa!<cr>
+
+" bravery, caps_lock as ctrl, dvorak
+" seems rather invasive for whenever you type 'h'
+" inoremap hh <esc>
+" vnoremap hh <esc>
+" inoremap tn <esc>
+" uncomfortable
+" inoremap <leader>e <esc>
+" decent, even considering 'h' delay
+" inoremap ht <esc>
+" vnoremap ht <esc>
+
+" promising
+inoremap <leader>. <esc>
+vnoremap <leader>. <esc>
+" Ctrl-[
+" Ctrl-c
+
+" too slow?
+inoremap ;; <esc>
+vnoremap ;; <esc>
 
 " SudoWrite
 nnoremap <leader>sw :w !sudo tee > /dev/null %<cr>
@@ -203,18 +222,6 @@ nnoremap <leader>sw :w !sudo tee > /dev/null %<cr>
 " buffers
 noremap <tab> :bn<cr>
 noremap <s-tab> :bp<cr>
-
-" sane regex
-nnoremap / /\v
-vnoremap / /\v
-nnoremap ? ?\v
-vnoremap ? ?\v
-nnoremap :s/ :s/\v
-
-" cmd window
-nnoremap q: q:i
-nnoremap q/ q/i
-nnoremap q? q?i
 
 " wrapped lines sanity
 nnoremap <silent> j gj
@@ -225,8 +232,6 @@ nnoremap <silent> n nzz
 nnoremap <silent> N Nzz
 nnoremap <silent> * *zz
 nnoremap <silent> # #zz
-nnoremap <silent> g* g*zz
-nnoremap <silent> g# g#zz
 
 " reselect visual block after indent
 vnoremap < <gv
@@ -242,6 +247,7 @@ nnoremap<s-l> gt
 " windows
 nnoremap <leader>wh :split<cr>
 nnoremap <leader>wv :vsplit<cr>
+" these three made more sense when caps_lock wasn't mapped to ctrl
 nnoremap <leader>wo <c-w><c-o>
 nnoremap <leader>wt <c-w>T
 nnoremap <leader>ww <c-w>w
@@ -259,15 +265,21 @@ nnoremap <bs> :set hlsearch! hlsearch?<cr>
 " blasphemy
 inoremap <c-a> <esc>I
 inoremap <c-e> <esc>A
+" " ctrl-space, works without URxvt.keysym override for c-space
+" inoremap <c-@> <esc>o
 
 " wordwise Ctrl-Y in insert mode
 inoremap <expr> <c-y> matchstr(getline(line('.')-1), '\%' . virtcol('.') . 'v\%(\k\+\\|.\)')
+inoremap <expr> <c-i> matchstr(getline(line('.')+1), '\%' . virtcol('.') . 'v\%(\k\+\\|.\)')
 
-" disable useless default
-nnoremap K <nop>
+" split lines
+nnoremap K i<cr><esc>k$
 
 " Ctags
 nnoremap <F3> :!ctags -R --exclude=.git --exclude=log --exclude=vendor *<cr>
 
 " accuracy adjustment
 cnoreabbrev W w
+
+" rofl
+map <F2> ggg?G``

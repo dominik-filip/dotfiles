@@ -39,3 +39,10 @@ URxvt*loginShell: true
 ! Disable Perl extensions for security and speed
 URxvt.perl-ext:
 URxvt.perl-ext-common:
+
+! Zenburn
+! URxvt*background: #3F3F3F
+! URxvt*foreground: #F5DEB3
+
+URxvt.keysym.C-space: \033
+URxvt.keysym.C-Return: \033

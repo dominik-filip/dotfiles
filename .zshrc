@@ -33,6 +33,7 @@ bindkey '^Z' fancy-ctrl-z
 # Invoked whenever you change working directory
 function chpwd() {
   ls
+  chruby_auto # ugly workaround for chruby zsh
 }
 
 # Handy emacs
@@ -42,3 +43,14 @@ bindkey '^A' beginning-of-line
 bindkey '^E' end-of-line
 bindkey '^G' insert-last-word
 bindkey '^O' push-line
+
+# Vi bravery
+# bindkey -M viins 'hh' vi-cmd-mode
+KEYTIMEOUT=20
+
+# Chruby madness
+source /usr/share/chruby/chruby.sh
+source /usr/share/chruby/auto.sh
+
+# added by travis gem
+[ -f /home/zimt/.travis/travis.sh ] && source /home/zimt/.travis/travis.sh
