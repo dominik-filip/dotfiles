@@ -196,21 +196,9 @@ nnoremap <leader><leader> :w<cr>
 nnoremap <leader><space> :q!<cr>
 nnoremap <leader><leader><space> :wqa!<cr>
 
-" bravery, caps_lock as ctrl, dvorak
-" seems rather invasive for whenever you type 'h'
-" inoremap hh <esc>
-" vnoremap hh <esc>
-" inoremap tn <esc>
-" uncomfortable
-" inoremap <leader>e <esc>
-" decent, even considering 'h' delay
-" inoremap ht <esc>
-" vnoremap ht <esc>
-
-" promising
+" escape magic
 inoremap <leader>. <esc>
 vnoremap <leader>. <esc>
-" Ctrl-[
 " Ctrl-c
 
 " too slow?
@@ -266,8 +254,6 @@ nnoremap <bs> :set hlsearch! hlsearch?<cr>
 " blasphemy
 inoremap <c-a> <esc>I
 inoremap <c-e> <esc>A
-" " ctrl-space, works without URxvt.keysym override for c-space
-" inoremap <c-@> <esc>o
 
 " wordwise Ctrl-Y in insert mode
 inoremap <expr> <c-y> matchstr(getline(line('.')-1), '\%' . virtcol('.') . 'v\%(\k\+\\|.\)')

@@ -44,8 +44,6 @@ bindkey '^E' end-of-line
 bindkey '^G' insert-last-word
 bindkey '^O' push-line
 
-# Vi bravery
-# bindkey -M viins 'hh' vi-cmd-mode
 KEYTIMEOUT=20
 
 # Chruby madness
