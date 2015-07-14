@@ -112,6 +112,7 @@ Plugin 'othree/javascript-libraries-syntax.vim'
 Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-fugitive'
 Plugin 'vim-scripts/closetag.vim'
+Plugin 'wellle/targets.vim'
 
 call vundle#end()
 filetype plugin indent on
@@ -200,10 +201,6 @@ nnoremap <leader><leader><space> :wqa!<cr>
 inoremap <leader>. <esc>
 vnoremap <leader>. <esc>
 " Ctrl-c
-
-" too slow?
-inoremap ;; <esc>
-vnoremap ;; <esc>
 
 " SudoWrite
 nnoremap <leader>sw :w !sudo tee > /dev/null %<cr>
